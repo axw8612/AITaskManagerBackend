@@ -52,7 +52,7 @@ export const config: Config = {
   database: {
     host: process.env['DB_HOST'] || 'localhost',
     port: parseInt(process.env['DB_PORT'] || '5432', 10),
-    name: process.env['DB_NAME'] || 'ai_task_manager',
+    name: process.env['NODE_ENV'] === 'test' ? 'ai_task_manager_test' : (process.env['DB_NAME'] || 'ai_task_manager'),
     user: process.env['DB_USER'] || 'postgres',
     password: process.env['DB_PASSWORD'] || '',
   },

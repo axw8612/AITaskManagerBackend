@@ -26,11 +26,11 @@ module.exports = {
   test: {
     client: 'pg',
     connection: {
-      host: process.env.DB_HOST || 'localhost',
+      host: process.env.DB_HOST || 'vault.wes.lan',
       port: process.env.DB_PORT || 5432,
       database: process.env.DB_NAME_TEST || 'ai_task_manager_test',
       user: process.env.DB_USER || 'postgres',
-      password: process.env.DB_PASSWORD || '',
+      password: process.env.DB_PASSWORD || 'r-2cv6VXsX7u',
     },
     pool: {
       min: 1,

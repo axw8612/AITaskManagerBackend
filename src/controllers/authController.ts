@@ -6,7 +6,6 @@ import { logger } from '../utils/logger';
 import bcrypt from 'bcryptjs';
 import jwt from 'jsonwebtoken';
 import { config } from '../config/config';
-import crypto from 'crypto';
 import { v4 as uuidv4 } from 'uuid';
 
 // Helper function to generate JWT token
