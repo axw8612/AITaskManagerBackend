@@ -29,7 +29,7 @@ export const authenticate = async (
     
     // Verify user still exists and is active
     const user = await db('users')
-      .where({ id: decoded.id, isActive: true })
+      .where({ id: decoded.id, is_active: true })
       .first();
 
     if (!user) {

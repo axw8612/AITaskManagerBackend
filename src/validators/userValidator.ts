@@ -2,12 +2,12 @@ import { Request, Response, NextFunction } from 'express';
 import Joi from 'joi';
 
 const updateUserSchema = Joi.object({
-  email: Joi.string().email().optional(),
-  username: Joi.string().min(3).max(30).optional(),
-  firstName: Joi.string().min(1).max(50).optional(),
-  lastName: Joi.string().min(1).max(50).optional(),
-  avatar: Joi.string().uri().optional(),
-});
+  first_name: Joi.string().min(1).max(50).optional(),
+  last_name: Joi.string().min(1).max(50).optional(),
+  preferences: Joi.object().optional(),
+  current_password: Joi.string().min(6).optional(),
+  new_password: Joi.string().min(6).optional(),
+}).with('new_password', 'current_password');
 
 const validateRequest = (schema: Joi.ObjectSchema) => {
   return (req: Request, res: Response, next: NextFunction): void => {
