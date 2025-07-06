@@ -1,0 +1,129 @@
+# License
+
+MIT License
+
+Copyright (c) 2024 AI Task Management Assistant
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+## Third-Party Licenses
+
+This project includes several third-party open source components. Below are the licenses for the main dependencies:
+
+### Core Dependencies
+
+#### Express.js
+- **License**: MIT License
+- **Copyright**: (c) 2009-2014 TJ Holowaychuk <tj@vision-media.ca>
+- **Copyright**: (c) 2013-2014 Roman Shtylman <shtylman+expressjs@gmail.com>
+- **Copyright**: (c) 2014-2015 Douglas Christopher Wilson <doug@somethingdoug.com>
+
+#### PostgreSQL
+- **License**: PostgreSQL License (similar to BSD or MIT)
+- **Copyright**: (c) 1996-2023, PostgreSQL Global Development Group
+
+#### Redis
+- **License**: BSD 3-Clause License
+- **Copyright**: (c) 2009-2012, Salvatore Sanfilippo <antirez at gmail dot com>
+
+#### TypeScript
+- **License**: Apache License 2.0
+- **Copyright**: (c) Microsoft Corporation
+
+#### Socket.IO
+- **License**: MIT License
+- **Copyright**: (c) 2014-2018 Automattic <dev@cloudup.com>
+
+#### Joi
+- **License**: BSD 3-Clause License
+- **Copyright**: (c) 2012-2020, Sideway Inc, and project contributors
+
+#### bcryptjs
+- **License**: MIT License
+- **Copyright**: (c) 2013 Daniel Wirtz <dcode@dcode.io>
+
+#### jsonwebtoken
+- **License**: MIT License
+- **Copyright**: (c) 2015 Auth0, Inc. <support@auth0.com> (http://auth0.com)
+
+#### Winston
+- **License**: MIT License
+- **Copyright**: (c) 2010 Charlie Robbins
+
+#### Jest
+- **License**: MIT License
+- **Copyright**: (c) Facebook, Inc. and its affiliates
+
+### Development Dependencies
+
+#### ESLint
+- **License**: MIT License
+- **Copyright**: (c) OpenJS Foundation and other contributors, <www.openjsf.org>
+
+#### Prettier
+- **License**: MIT License
+- **Copyright**: (c) James Long and contributors
+
+For a complete list of all dependencies and their licenses, run:
+```bash
+npm list --depth=0
+npx license-checker --summary
+```
+
+## OpenAI API Usage
+
+This project integrates with OpenAI's API services:
+
+- **Service**: OpenAI API (GPT-4)
+- **Terms**: https://openai.com/policies/terms-of-use
+- **Privacy**: https://openai.com/policies/privacy-policy
+- **Usage**: This software uses OpenAI's API for generating AI-powered task suggestions and analysis
+
+**Note**: Users of this software are responsible for complying with OpenAI's terms of service and usage policies when using AI features.
+
+## Disclaimer
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY, FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM, OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE SOFTWARE.
+
+This software is provided for educational and development purposes. Users are responsible for ensuring compliance with all applicable laws and regulations in their jurisdiction when using this software.
+
+## Attribution
+
+If you use this software in your project, we'd appreciate attribution but it's not required. A link back to the original repository would be nice:
+
+```
+This project uses the AI Task Management Assistant backend
+https://github.com/ai-task-manager/backend
+```
+
+## Commercial Use
+
+This MIT license allows commercial use of this software. You are free to use, modify, and distribute this software for commercial purposes without restriction, subject to the terms of the MIT license.
+
+## Contributing
+
+By contributing to this project, you agree that your contributions will be licensed under the same MIT license that covers the project.
+
+## Contact
+
+For questions about licensing or usage:
+- **Email**: legal@taskmanager.ai
+- **Project**: https://github.com/ai-task-manager/backend
