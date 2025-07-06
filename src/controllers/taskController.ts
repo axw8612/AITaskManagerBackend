@@ -221,8 +221,8 @@ class TaskController {
           title: title.trim(),
           description: description?.trim() || null,
           project_id: projectId,
-          assigned_to: assignedTo || null,
-          created_by: userId,
+          assignee_id: assignedTo || null, // Changed from assigned_to to assignee_id
+          creator_id: userId, // Changed from created_by to creator_id
           priority,
           status,
           due_date: dueDate ? new Date(dueDate) : null,
@@ -235,7 +235,7 @@ class TaskController {
       const taskWithDetails = await db('tasks')
         .join('projects', 'tasks.project_id', 'projects.id')
         .where('tasks.id', task.id)
-        .leftJoin('users as assignee', 'tasks.assigned_to', 'assignee.id')
+        .leftJoin('users as assignee', 'tasks.assignee_id', 'assignee.id') // Changed from assigned_to to assignee_id
         .select(
           'tasks.*',
           'projects.name as project_name',
@@ -253,8 +253,8 @@ class TaskController {
         data: {
           task: {
             ...taskWithDetails,
-            assignee: taskWithDetails.assigned_to ? {
-              id: taskWithDetails.assigned_to,
+            assignee: taskWithDetails.assignee_id ? { // Changed from assigned_to to assignee_id
+              id: taskWithDetails.assignee_id, // Changed from assigned_to to assignee_id
               username: taskWithDetails.assignee_username,
               first_name: taskWithDetails.assignee_first_name,
               last_name: taskWithDetails.assignee_last_name

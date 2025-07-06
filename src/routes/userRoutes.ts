@@ -11,6 +11,7 @@ router.use(authenticate);
 router.get('/profile', userController.getProfile);
 router.put('/profile', validateUser.update, userController.updateProfile);
 router.get('/search', userController.searchUsers);
+router.get('/stats', userController.getUserStats);
 router.get('/:id', userController.getUser);
 router.get('/:id/projects', userController.getUserProjects);
 router.get('/:id/tasks', userController.getUserTasks);

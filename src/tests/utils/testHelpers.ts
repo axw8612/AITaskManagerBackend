@@ -6,7 +6,7 @@ import jwt from 'jsonwebtoken';
 import { config } from '../../config/config';
 
 export interface TestUser {
-  id: number;
+  id: string; // UUID string format
   username: string;
   email: string;
   first_name: string;
@@ -17,22 +17,22 @@ export interface TestUser {
 }
 
 export interface TestProject {
-  id: number;
+  id: string; // UUID string format
   name: string;
   description: string;
   status: string;
-  created_by: number;
+  owner_id: string; // UUID string format
 }
 
 export interface TestTask {
-  id: number;
+  id: string; // UUID string format
   title: string;
   description: string;
   status: string;
   priority: string;
-  project_id: number;
-  assigned_to?: number;
-  created_by: number;
+  project_id: string; // UUID string format
+  assignee_id?: string; // UUID string format, renamed from assigned_to
+  creator_id: string; // UUID string format, renamed from created_by
 }
 
 export class TestHelpers {
@@ -65,12 +65,12 @@ export class TestHelpers {
     return user;
   }
 
-  static async createTestProject(createdBy: number, overrides: Partial<TestProject> = {}): Promise<TestProject> {
+  static async createTestProject(createdBy: string, overrides: Partial<TestProject> = {}): Promise<TestProject> {
     const defaultProject = {
       name: `Test Project ${Date.now()}`,
       description: 'Test project description',
       status: 'active',
-      created_by: createdBy,
+      owner_id: createdBy,
       created_at: new Date(),
       updated_at: new Date()
     };
@@ -83,29 +83,33 @@ export class TestHelpers {
       project_id: project.id,
       user_id: createdBy,
       role: 'owner',
-      joined_at: new Date()
+      joined_at: new Date(),
+      created_at: new Date(),
+      updated_at: new Date()
     });
 
     return project;
   }
 
-  static async addProjectMember(projectId: number, userId: number, role: string = 'member'): Promise<void> {
+  static async addProjectMember(projectId: string, userId: string, role: string = 'member'): Promise<void> {
     await db('project_members').insert({
       project_id: projectId,
       user_id: userId,
       role,
-      joined_at: new Date()
+      joined_at: new Date(),
+      created_at: new Date(),
+      updated_at: new Date()
     });
   }
 
-  static async createTestTask(projectId: number, createdBy: number, overrides: Partial<TestTask> = {}): Promise<TestTask> {
+  static async createTestTask(projectId: string, createdBy: string, overrides: Partial<TestTask> = {}): Promise<TestTask> {
     const defaultTask = {
       title: `Test Task ${Date.now()}`,
       description: 'Test task description',
       status: 'todo',
       priority: 'medium',
       project_id: projectId,
-      created_by: createdBy,
+      creator_id: createdBy, // Changed from created_by to creator_id
       created_at: new Date(),
       updated_at: new Date()
     };
@@ -115,7 +119,7 @@ export class TestHelpers {
     return task;
   }
 
-  static async createTask(createdBy: number, projectId: number, overrides: Partial<TestTask> = {}): Promise<TestTask> {
+  static async createTask(createdBy: string, projectId: string, overrides: Partial<TestTask> = {}): Promise<TestTask> {
     return this.createTestTask(projectId, createdBy, overrides);
   }
 
@@ -136,7 +140,7 @@ export class TestHelpers {
     return request(app)[method](url).set('Authorization', `Bearer ${token}`);
   }
 
-  static async createPasswordResetToken(userId: number, token: string): Promise<void> {
+  static async createPasswordResetToken(userId: string, token: string): Promise<void> {
     await db('password_reset_tokens').insert({
       user_id: userId,
       token,

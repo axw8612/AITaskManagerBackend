@@ -4,6 +4,9 @@ import Joi from 'joi';
 const updateUserSchema = Joi.object({
   first_name: Joi.string().min(1).max(50).optional(),
   last_name: Joi.string().min(1).max(50).optional(),
+  bio: Joi.string().optional(),
+  username: Joi.string().min(3).max(30).optional(),
+  email: Joi.string().email().optional(),
   preferences: Joi.object().optional(),
   current_password: Joi.string().min(6).optional(),
   new_password: Joi.string().min(6).optional(),

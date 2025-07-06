@@ -161,7 +161,7 @@ class ProjectController {
             name: name.trim(),
             description: description?.trim() || null,
             status,
-            created_by: userId,
+            owner_id: userId, // Changed from created_by to owner_id
             created_at: new Date(),
             updated_at: new Date()
           })
